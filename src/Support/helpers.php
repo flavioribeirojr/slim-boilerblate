@@ -1,6 +1,6 @@
 <?php
 
-use Support\ApplicationBuilder;
+use Support\Application;
 
 /**
  * Get an ENV value of return the default
@@ -19,7 +19,7 @@ function env(string $key, $default = null) {
  * @return array
  */
 function config(): array {
-    return ApplicationBuilder::$config;
+    return Application::$config;
 }
 
 function map(array $array, callable $callback) {
