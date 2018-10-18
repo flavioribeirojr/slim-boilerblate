@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Models;
+namespace Common\Models;
 
 use Support\Traits\Entities\UUID;
 use Doctrine\ORM\Mapping as ORM;
@@ -37,7 +37,6 @@ class User
     public function setName(string $name): self
     {
         $this->name = $name;
-        $this->setUsername($name);
 
         return $this;
     }

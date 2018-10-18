@@ -20,6 +20,6 @@ return [
         'driver'   => env('DB_DRIVER', 'pdo_pgsql')
     ],
     'models_path' => [
-        ROOT_DIR . '/src/Common/Models'
+        'Common\Models' => ROOT_DIR . '/src/Common/Models'
     ]
 ];
