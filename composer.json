@@ -1,5 +1,6 @@
 {
     "name": "flaviojr/slim-boilerplate",
+    "type": "project",
     "description": "Boilerplate for slim applications",
     "require": {
         "slim/slim": "^3.11",
