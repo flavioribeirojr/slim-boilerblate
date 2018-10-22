@@ -12,10 +12,13 @@ return [
         Logger::ALERT    => ROOT_DIR . '/logs/alert.log'
     ],
     'domains' => [
-        'Foo' => [
-            'routes'     => FooRoutes::class,
-            'containers' => require_once(ROOT_DIR . '/src/Domains/Foo/config/containers.php')
-        ]
+        /**
+         * 'Foo' => [
+         *   'routes'     => FooRoutes::class,
+         *   'containers' => require_once(ROOT_DIR . '/src/Domains/Foo/config/containers.php')
+         * ]
+         *
+         */
     ],
     'database' => [
         'host'     => env('DB_HOST', '127.0.0.1'),

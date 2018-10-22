@@ -30,5 +30,18 @@ class TestCase extends PHPUnitTestCase
         parent::setUp();
 
         $this->buildApp();
+
+        if (method_exists($this, 'openTransaction')) {
+            $this->openTransaction();
+        }
+    }
+
+    protected function tearDown()
+    {
+        parent::tearDown();
+
+        if (method_exists($this, 'closeTransaction')) {
+            $this->closeTransaction();
+        }
     }
 }

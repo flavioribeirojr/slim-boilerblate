@@ -16,27 +16,25 @@ class TestBuilder
 
     public function build()
     {
-        if (env('APP_ENV', 'DEV') === 'DEV') {
-            (new \Dotenv\Dotenv(realpath(__DIR__ . '/../')))->load();
-        }
-
         if (!defined('ROOT_DIR')) {
             define('ROOT_DIR', __DIR__ . '/../');
         }
+
+        if (env('ENV', 'DEV') === 'DEV') {
+            (new \Dotenv\Dotenv(realpath(ROOT_DIR)))->load();
+        }
+
+        $this->dbTestEnv();
 
         // Build the app
         Application::getApp();
 
         $config = Application::config();
 
-        $this->dbTestEnv();
-
         $this->entityManager = DBConnection::getEntityManager();
 
         $schemaTool = new SchemaTool($this->entityManager);
         $schemaTool->updateSchema($this->getMetaClass($config));
-
-        $this->schemaTool = $schemaTool;
     }
 
     private function dbTestEnv()

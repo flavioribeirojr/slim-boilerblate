@@ -8,13 +8,17 @@ trait Persister
 {
     public function persist($entity)
     {
-        DBConnection::getEntityManager()
-            ->persist($entity);
+        $entityManager = DBConnection::getEntityManager();
+
+        $entityManager->persist($entity);
+        $entityManager->flush();
     }
 
     public function remove($entiy)
     {
-        DBConnection::getEntityManager()
-            ->remove($entiy);
+        $entityManager = DBConnection::getEntityManager();
+
+        $entityManager->remove($entiy);
+        $entityManager->flush();
     }
 }
